@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
     void Start(){
 
         ShowConnectionPanel();
+
+        GameManager.onGameStateChanged += GameStateChangedCallback; // subscribe ao event
         
     }
 
@@ -22,6 +25,20 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDestroy() {
+        GameManager.onGameStateChanged -= GameStateChangedCallback; // unsubscribe ao event
+    }
+
+    private void GameStateChangedCallback(GameManager.State gameState){
+        
+        switch(gameState){
+            case GameManager.State.Game:
+                ShowGamePanel();
+                break;
+        }
+
     }
 
     private void ShowConnectionPanel(){
