@@ -153,7 +153,7 @@ MonoBehaviour:
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   InLocalSpace: 0
-  Interpolate: 1
+  Interpolate: 0
 --- !u!114 &6163947645343481855
 MonoBehaviour:
   m_ObjectHideFlags: 0
