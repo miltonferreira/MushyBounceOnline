@@ -9,9 +9,18 @@ public class PlayerSelector : NetworkBehaviour
     //*** Checa se é host ou client ------------------
     // fazendo o alpha do outro jogador fica mais transparente -----
 
+    public static PlayerSelector instance;
+
     private bool isHostTurn;
 
-    // Start is called before the first frame update
+    
+    private void Awake() {
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     void Start()
     {
         
@@ -76,6 +85,10 @@ public class PlayerSelector : NetworkBehaviour
         isHostTurn = !isHostTurn;
 
         Initilize();
+    }
+
+    public bool IsHostTurn(){
+        return isHostTurn;
     }
 
 }

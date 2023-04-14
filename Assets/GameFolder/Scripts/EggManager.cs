@@ -6,8 +6,19 @@ using System;
 
 public class EggManager : NetworkBehaviour
 {
+
+    public static EggManager instance;
+
     [Header("Elements")]
     [SerializeField] private Egg eggPrefab;
+
+    private void Awake() {
+        if(instance == null){
+            instance = this;
+        }else{
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start(){
@@ -34,13 +45,20 @@ public class EggManager : NetworkBehaviour
         if(!IsServer)
             return;
 
+        // cria egg na cena
         Egg eggInstance = Instantiate(eggPrefab, Vector3.up * 5, Quaternion.identity);
         eggInstance.GetComponent<NetworkObject>().Spawn();  // faz com que egg aparece também para o cliente
+        eggInstance.transform.SetParent(transform);         // torna egg filho desse gameobject
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void ReuseEgg(){
+        if(!IsServer)
+            return;
+
+        if(transform.childCount < 0)
+            return;
+
+        transform.GetChild(0).GetComponent<Egg>().Reuse();
         
     }
 }
