@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 using System;
 using UnityEngine.SceneManagement;
+using Unity.Netcode.Transports.UTP;
 
 public class UIManager : MonoBehaviour
 {
@@ -82,12 +83,30 @@ public class UIManager : MonoBehaviour
     }
 
     public void HostButtonCallBack(){
-        NetworkManager.Singleton.StartHost();
+        //NetworkManager.Singleton.StartHost();
         ShowWaitingPanel();
+        RelayManager.instance.StartCoroutine(
+            RelayManager.instance.ConfigureTransportAndStartNgoAsHost()
+        );
     }
 
     public void ClientButtonCallBack(){
-        NetworkManager.Singleton.StartClient();
+
+        // Let´s grab the IP address that player has entered
+        // Vamos pegar o IP Address que o player teve entrado
+
+        //string ipAddress = IPManager.instance.GetInputIP();
+
+        // Configure the Network Manager
+        //UnityTransport utp = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        //utp.SetConnectionData(ipAddress, 7777);
+
+        //NetworkManager.Singleton.StartClient();
+
+        RelayManager.instance.StartCoroutine(
+            RelayManager.instance.ConfigureTransportAndStartNgoAsConnectingPlayer()
+        );
+
         ShowWaitingPanel();
     }
 
