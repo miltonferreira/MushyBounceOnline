@@ -46,6 +46,7 @@ public class Egg : MonoBehaviour
 
         if(other.collider.TryGetComponent(out PlayerController playerController)){
             Bounce(other.GetContact(0).normal);
+            playerController.Bump();
             onHit?.Invoke();
         }
     }

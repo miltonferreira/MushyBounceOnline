@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7835723370319835665}
+  - component: {fileID: 5062893198114561065}
+  - component: {fileID: 4806588357085430496}
   m_Layer: 0
   m_Name: Pluggy Renderer
   m_TagString: Untagged
@@ -33,6 +35,40 @@ Transform:
   m_Father: {fileID: 1513152526827988033}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5062893198114561065
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212968966821153851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 531dca956560a414891e25038f34552f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4806588357085430496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212968966821153851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 5062893198114561065}
 --- !u!1 &1513152526651009798
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +222,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   maxX: 4
+  animator: {fileID: 5062893198114561065}
+  bodyAnimator: {fileID: 291548139553272301}
+  animatorSpeedMultiplier: 150
+  animatorSpeedLerp: 7
 --- !u!114 &2084972191689452377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +494,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4249636888368393587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -462,7 +502,7 @@ Transform:
   - {fileID: 2799390461144326696}
   - {fileID: 7787671318939872180}
   - {fileID: 2033250940834170789}
-  m_Father: {fileID: 2194135715440524042}
+  m_Father: {fileID: 4790928608432982477}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6255499497379817239
@@ -760,6 +800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790928608432982477}
   - component: {fileID: 7578900049273946189}
+  - component: {fileID: 291548139553272301}
   m_Layer: 0
   m_Name: Body Renderer
   m_TagString: Untagged
@@ -780,6 +821,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8143367696094328050}
+  - {fileID: 8001011287754356786}
   m_Father: {fileID: 2194135715440524042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -835,6 +877,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &291548139553272301
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418212574662536171}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23e5756c11e1b604d9c0eb60648231c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8341388304206687642
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +926,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4790928608432982477}
-  - {fileID: 8001011287754356786}
   m_Father: {fileID: 7835723370319835665}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
