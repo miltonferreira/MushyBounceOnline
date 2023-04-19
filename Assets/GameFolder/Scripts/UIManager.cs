@@ -115,4 +115,10 @@ public class UIManager : MonoBehaviour
         NetworkManager.Singleton.Shutdown();
 
     }
+
+    public void PlayButtonCallback(){
+        ShowWaitingPanel();
+
+        MatchmakingManager.instance.PlayButtonCallback();
+    }
 }
